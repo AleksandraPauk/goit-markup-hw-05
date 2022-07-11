@@ -642,9 +642,12 @@ margin-right: 10px;
 }
 
 .portfolio-link:hover .portfolio-overlay {
-    transform: translateY(-100%);
-    
+    transform: translateY(-100%); 
 } 
+
+.portfolio-link:focus .portfolio-overlay {
+    transform: translateY(-100%);
+}
 
 .main-portfolio-button {
     font-family: inherit;
