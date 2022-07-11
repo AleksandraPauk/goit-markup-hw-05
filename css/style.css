@@ -167,6 +167,10 @@ header {
     transition: transform 250ms var(--timing-function);
 }
 
+/* .navigation::after .current {
+
+} */
+
 .navigation:hover::after {
     transform: scale(1);
 }
@@ -334,11 +338,29 @@ margin-top: 50px;
 }
 
 .activity-box {
+    position: relative;
     margin-right: 30px;
 }
 
 .activity-box:last-child {
     margin-right: 0%;
+}
+
+.activity-description {
+    position: absolute;
+    color: var(--accent-color);
+    width: 370px;
+    height: 70px;
+    background-color: rgba(47, 48, 58, 0.8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-70px);
+
+    font-weight: 700;    
+    text-transform: uppercase;
 }
 
 /*Наша командра*/
@@ -592,8 +614,6 @@ margin-right: 10px;
 .portfolio-link {
     text-decoration: none;
     display: block; 
-    /* position: relative; */
-    /* overflow: hidden; */
 }
 
 .portfolio-link:hover,
@@ -612,7 +632,7 @@ margin-right: 10px;
     font-size: 18px;
     line-height: 1.56;
     padding: 63px 24px;
-    width: 370px;
+    width: 100%;
     height: 294px;
     background-color: rgba(33, 150, 243, 0.9);
     display: inline-block;
@@ -704,19 +724,32 @@ margin-right: 10px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms var(--timing-function); 
+}
+
+.is-hidden {
+    opacity: 0;
+    /* visibility: hidden; */
+    pointer-events: none;
 }
 
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms var(--timing-function);
+
     width: 528px;
     min-height: 580px;
     background-color: var(--accent-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+}
+
+.backdrop .is-hidden .modal {
+    transform: scale(0.9);
 }
 
 .modal-close-botton {
@@ -737,9 +770,5 @@ margin-right: 10px;
     border-radius: 50%;
 }
 
-.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
+
 
